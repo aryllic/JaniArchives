@@ -1,0 +1,211 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.info-header {
+  position: relative;
+  background-color: #10c96db7;
+  padding: 3.5vh;
+  margin: -8px;
+}
+.info-header  a {
+  color: #000000;
+}
+.info-header .content {
+  position: relative;
+  text-align: center;
+  font-size: 35px;
+  padding: 1vh;
+  transition: 1s;
+}
+.info-header .content:hover {
+  font-size: 40px;
+  color: #FFFFFF;
+}
+.info-header .content-right {
+  position: relative;
+  text-align: right;
+  font-size: 20px;
+  margin: -2vh 0 0 0;
+}
+
+.edit-button{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  border-radius: 3px;
+}
+
+.main-content {
+  position: relative;
+  background-color: #ffffff8f;
+  padding: 5%;
+  margin: 5% 5% 10% 5%;
+  max-width: 90%;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  font-size: 25px;
+  border-radius: 5px;
+}
+.main-content .item {
+  position: relative;
+  padding: 1% 0 1% 0;
+  text-align: center;
+}
+.main-content .item a{
+  color: #000000;
+  transition: 0.5s;
+}
+.main-content .item a:hover{
+  color: #FFFFFF;
+}
+
+header .header {
+  background-color: #fff;
+  height: 45px;
+}
+header a img {
+  width: 134px;
+  margin-top: 4px;
+}
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0 0;
+  margin: auto;
+}
+.login-page .login-form .login {
+  margin-top: -31px;
+  margin-bottom: 26px;
+}
+.login-form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.login-form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f3f3f3;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.login-form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background-color: #328f8a;
+  background-image: linear-gradient(45deg,#328f8a,#08ac4b);
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.login-form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.login-form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.chat-box {
+  position: relative;
+  padding: 1% 0 0 1%;
+  margin: 25px 0 25px 13.5%;
+  background-color: #ffffff8f;
+  overflow-y: auto;  
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  width: 70%;
+  height: 80vh;
+  border-radius: 5px;
+}
+.chat-box .msg-cl {
+  position: absolute;
+  padding: 5px;
+  bottom: 20px;
+  right: 20px;
+  max-width: 45%;
+  word-wrap: break-word;
+  text-align: right;
+  border-radius: 12px;
+  background-color: #FFFFFF;
+  font-size: 15px;
+}
+.chat-box .msg-s {
+  position: absolute;
+  padding: 5px;
+  bottom: 20px;
+  left: 20px;
+  max-width: 45%;
+  word-wrap: break-word;
+  text-align: left;
+  border-radius: 12px;
+  background-color: #FFFFFF;
+  font-size: 15px;
+}
+
+.message-form {
+  position: relative;
+  margin: 1.25%;
+}
+.message-form input {
+  position: absolute;
+  height: 5vh;
+  width: 70%;
+  right: 6vh;
+  margin: 0.5vh;
+  border-radius: 5px;
+  font-size: 20px;
+  border: none;
+}
+.message-form button {
+  position: absolute;
+  border-radius: 100%;
+  width: 5vh;
+  height: 5vh;
+  right: 0;
+  margin: 0.5vh;
+  background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.transparentpng.com%2Fthumb%2Fsend-email-button%2FzfOVUL-send-email-button-cut-out.png&f=1&nofb=1");
+  background-size: cover;
+  border: none;
+}
+
+footer {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 10%;
+  bottom: 0%;
+  margin: 0 0 0 -8px;
+  background-color: #10c96db7;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+body {
+  background-color: #FFFFFF;
+  background-image: linear-gradient(45deg,#328f8a,#08ac4b);
+  background-size: 100% 200%;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
