@@ -34,12 +34,26 @@
   border: none;
   border-radius: 3px;
 }
+.add-button{
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  border: none;
+  border-radius: 3px;
+}
+.save-button{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  border-radius: 3px;
+}
 
 .main-content {
   position: relative;
   background-color: #ffffff8f;
   padding: 5%;
-  margin: 5% 5% 10% 5%;
+  margin: 10% 5% 20% 5%;
   max-width: 90%;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   font-size: 25px;
@@ -56,6 +70,11 @@
 }
 .main-content .item a:hover{
   color: #FFFFFF;
+}
+.main-content .item .item-form input{
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
 }
 
 header .header {
