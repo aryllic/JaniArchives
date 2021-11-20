@@ -22,22 +22,6 @@ fetch('https://api.ipify.org/?format=json')
     .then(results => results.json())
     .then(data => SetIP(data.ip))
 
-function Prüfen() {
-    var Value = document.Form.Text.value;
-    if (Value == "givemyip") {
-        alert("Deine IP: " + Ip);
-    } else if (Value == "levin") {
-        alert("Levin stinkt!");
-    } else if (Value == "crash") {
-        window.open("CRASH.html");
-        while (true) {
-            console.log("CRASH");
-        }
-    } else {
-        window.open(Value)
-    }
-}
-
 function startlogin() {
     console.log("Start")
     var loginform = document.getElementById("login-form");
