@@ -161,7 +161,7 @@ header a img {
   word-wrap: break-word;
   text-align: right;
   border-radius: 12px;
-  background-color: #FFFFFF;
+  background-color: #2fce71;
   font-size: 15px;
 }
 .chat-box .msg-s {
@@ -175,6 +175,20 @@ header a img {
   border-radius: 12px;
   background-color: #FFFFFF;
   font-size: 15px;
+}
+.chat-box .msg-ann {
+  position: absolute;
+  padding: 5px;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  max-width: 45%;
+  margin: auto;
+  word-wrap: break-word;
+  text-align: center;
+  border-radius: 12px;
+  background-color: #599bff3d;
+  font-size: 17px;
 }
 
 .message-form {
