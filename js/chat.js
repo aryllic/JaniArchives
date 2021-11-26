@@ -2,7 +2,7 @@ const fetchurl = "https://discord.com/api/webhooks/913863782437101569/l_JLCLy8QW
 var msgform, chatbox, ip;
 
 function SetIP(IP) {
-    if (IP != "85.90.159.118") {
+    if (IP != "0") {
         ip = IP;
         chatbox.innerHTML += "<div class='msg-ann'>" + IP + " entered the chat!" + "</div>";
     } else {
