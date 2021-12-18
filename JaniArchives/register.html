@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - JaniArchives</title>
+    <link rel="shortcut icon" type="image/png" href="pic/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/register.js"></script>
+</head>
+<body onload="startRegister()">
+    <div class="register-page">
+        <form class="register-form" id="register-form">
+          <div class="register">
+            <div class="register-header">
+              <h3>REGISTER</h3>
+              <p>Please enter your credentials to register.</p>
+            </div>
+          </div>
+          <form class="register-form2" id="registerform2">
+            <input type="text" placeholder="Username" id="username"/>
+            <input type="password" placeholder="Password" id="password"/>
+            <input type="password" placeholder="Confirm Password" id="confirmpassword"/>
+            <button>Register</button>
+            <p class="error-message" id="errormsg" hidden>ERRORMESSAGE</p>
+            <p class="message">Back to the <a href="/login">Login-Page</a></p>
+          </form>
+        </form>
+    </div>
+</body>
+</html>

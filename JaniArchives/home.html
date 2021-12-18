@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inhalsverzeichnis - JaniArchives</title>
+    <link rel="shortcut icon" type="image/png" href="pic/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/home.js"></script>
+    <script src="js/editbuttons.js"></script>
+</head>
+<body onload="startEditButtons(); loadUsername();">
+    <header class="info-header">
+        <div id="username-label" class="username-label">
+            
+        </div>
+        <div class="content">
+            JaniArchives
+        </div>
+        <div class="content-right">
+            <a href="/chat">Chat</a>
+        </div>
+    </header>
+    <div class="main-content" id="main-content">
+        <button class="edit-button">Edit</button>
+        <button class="save-button">Save</button>
+        <button class="add-button">Add</button>
+        <!--
+        <div class="item">
+            <a href="">Deutsch</a>
+        </div>
+        -->
+    </div>
+    <footer id="footer" class="footer">
+        <div class="logout">
+            <button onclick="logOut()" class="logout-button">Log Out</button>
+        </div>
+
+        <div class="content">
+            Home
+        </div>
+    </footer>
+</body>
+</html>
