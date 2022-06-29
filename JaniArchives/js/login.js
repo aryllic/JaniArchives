@@ -14,7 +14,6 @@ function newXHR(method, url, data) {
                 reject(xhr.response);
             } else {
                 const data = resolve(xhr.response);
-                console.log(data);
             };
         });
 
@@ -36,7 +35,7 @@ function startLogin() {
             password: loginForm.password.value
         };
 
-        newXHR("POST", "http://10.0.0.8:3000/login", sendData)
+        newXHR("POST", "http://178.190.235.224:443/login", sendData)
             .then(responseData => {
                 if (responseData && responseData.success == false) {
                     errormsg.innerText = responseData.errormsg;

@@ -1,4 +1,7 @@
-var msgForm, chatBox, ip, username;
+var msgForm, chatBox, ip, username, scrollHeight, chatHeight;
+
+scrollHeight = 0;
+chatHeight = 0;
 
 function newXHR(method, url, data) {
     const promise = new Promise((resolve, reject) => {
@@ -16,7 +19,6 @@ function newXHR(method, url, data) {
                 reject(xhr.response);
             } else {
                 const data = resolve(xhr.response);
-                console.log(data);
             };
         });
 
@@ -38,17 +40,48 @@ function SetIP(IP) {
 
 fetch('https://api.ipify.org/?format=json')
     .then(results => results.json())
-    .then(data => SetIP(data.ip))
+    .then(data => SetIP(data.ip));
+
+function sortmsgs() {
+    chatHeight = -chatBox.clientHeight + 15;
+
+    for (var i = chatBox.children.length - 1; i >= 0; i--) {
+        var chatBoxChild = chatBox.children[i];
+
+        chatHeight += chatBox.children[i].clientHeight + 15;
+
+        if (i < chatBox.children.length - 1) {
+            chatBoxChild.style.bottom = chatBox.children[i + 1].style.bottom.split("px")[0] * 1 + chatBox.children[i + 1].clientHeight + 15 + "px";
+        } else {
+            chatBoxChild.style.bottom = 15 - scrollHeight + "px";
+        };
+    };
+
+    scrollHeight = Math.min(Math.max(scrollHeight, 0), chatHeight);
+};
 
 function getmsgs() {
     var sendData = {
         getMessages: true
-    }
+    };
 
-    newXHR("POST", "http://10.0.0.8:3000/chat", sendData)
+    newXHR("POST", "http://178.190.235.224:443/chat", sendData)
         .then(responseData => {
             if (responseData.msgs) {
-                console.log(responseData.msgs)
+                var messagearray = "";
+
+                responseData.msgs.forEach(msg => {
+                    if (msg.username == username) {
+                        messagearray += "<div class='msg-cl'><div class='name'>" + msg.username + "</div>" + msg.msg + "</div>";
+                    } else if (msg.username == "announcement") {
+                        messagearray += "<div class='msg-ann'>" + msg.msg + "</div>";
+                    } else if (msg.username != username) {
+                        messagearray += "<div class='msg-s'><div class='name'>" + msg.username + "</div>" + msg.msg + "</div>";
+                    };
+                });
+
+                chatBox.innerHTML = messagearray;                
+                sortmsgs();
             };
         })
         .catch(err => {
@@ -58,33 +91,18 @@ function getmsgs() {
         });
 }
 
-function sortmsgs() {
-    for (var i = chatBox.children.length - 1; i >= 0; i--) {
-        var chatBoxChild = chatBox.children[i];
-
-        if (i < chatBox.children.length - 1) {
-            chatBoxChild.style.bottom = chatBox.children[i + 1].style.bottom.split("px")[0] * 1 + chatBox.children[i + 1].clientHeight + 15 + "px";
-        } else {
-            chatBoxChild.style.bottom = "15px";
-        };
-    };
-};
-
 function startChat() {
     msgForm = document.getElementById("message-form");
     chatBox = document.getElementById("chat-box");
 
-    setInterval(sortmsgs, 1000 / 24);
-
     var sendData = {
         getUser: true
-    }
+    };
 
-    newXHR("POST", "http://10.0.0.8:3000/chat", sendData)
+    newXHR("POST", "http://178.190.235.224:443/chat", sendData)
         .then(responseData => {
             if (responseData && responseData.username) {
-                username = responseData.username
-                chatBox.innerHTML += "<div class='msg-ann'>" + username + " entered the chat!" + "</div>";
+                username = responseData.username;
             } else {
                 window.location.assign("/home");
             };
@@ -95,17 +113,19 @@ function startChat() {
             };
         });
 
-        //setInterval(getmsgs, 1000);
+    setInterval(getmsgs, 500);
+
+    setInterval(sortmsgs, 1000 / 30);
 
     msgForm.addEventListener("submit", function (frm) {
         frm.preventDefault();
 
         var sendData = {
             message: msgForm.messagebox.value
-        }
+        };
 
         if (msgForm.messagebox.value != "") {
-            newXHR("POST", "http://10.0.0.8:3000/chat", sendData)
+            newXHR("POST", "http://178.190.235.224:443/chat", sendData)
                 .then(responseData => {
                     if (responseData) {
                         //console.log(responseData)
@@ -116,10 +136,27 @@ function startChat() {
                         console.log(err);
                     };
                 });
-
-            chatBox.innerHTML += "<div class='msg-cl'>" + msgForm.messagebox.value + "</div>";
         };
 
         msgForm.messagebox.value = "";
+    });
+
+    chatBox.addEventListener("mousedown", function(mouse) {
+        scrollStartHeight = scrollHeight;
+        mouseStartHeight = mouse.screenY;
+
+        mouseScrollUpdate = setInterval(function() {
+            scrollHeight = Math.min(Math.max(scrollStartHeight + (mouseStartHeight - mouseendheight) * -1, 0), chatHeight);
+        }, 1000 / 30);
+    });
+
+    document.addEventListener("mouseup", function(mouse) {
+        mouseendheight = mouse.screenY;
+
+        clearInterval(mouseScrollUpdate);
+    });
+
+    chatBox.addEventListener("mousemove", function(mouse) {
+        mouseendheight = mouse.screenY;
     });
 };

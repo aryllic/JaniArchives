@@ -22,25 +22,3 @@ function newXHR(method, url, data) {
 
     return promise;
 };
-
-function loadUsername() {
-    var usernameLabel = document.getElementById("username-label");
-    var username;
-
-    var sendData = {
-        getUser: true
-    };
-    
-    newXHR("POST", "http://178.190.235.224:443/home", sendData)
-        .then(responseData => {
-            if (responseData && responseData.username) {
-                username = responseData.username;
-                usernameLabel.innerText = "Logged in as: " + username;
-            };
-        })
-        .catch(err => {
-            if (err) {
-                console.log(err);
-            };
-        });
-};
